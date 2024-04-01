@@ -1,3 +1,3 @@
 # UI-gilob
 
-[](http://ui.gilob.in/@asset/logo.svg)
+![GitHub Logo](http://ui.gilob.in/@asset/logo.svg)
