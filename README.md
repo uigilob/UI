@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://ui-gilob.in">
       <img width="20%" src="http://ui.gilob.in/@asset/logo.svg" alt="ui-gilob" />
-      <h1 align="center">UI-gilob</h1>
+      <h1 align="center">UI-Gilob</h1>
   </a>
 </p>
 </br>
