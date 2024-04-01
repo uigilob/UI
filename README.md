@@ -28,7 +28,9 @@
 
 <body>
   <div class="h1 t-center">Hello World</div>
-
+  <script>
+   $alert("Hello World")
+ </script>
 </body>
 
 </html>
