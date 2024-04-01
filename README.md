@@ -93,7 +93,7 @@ The components table lists the available components in [Your Web UI Framework/Li
 
 ## Form 
 
-The Form Table lists the available form-related components in [Your Web UI Framework/Library Name], along with their corresponding import keys and descriptions:
+
 
 | Component    | Import Key | Description                                |
 |--------------|------------|--------------------------------------------|
