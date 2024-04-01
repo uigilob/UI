@@ -8,6 +8,31 @@
 
 ![](http://ui.gilob.in/@asset/Screenshot.png)
 
+# CDN 
+```html
+<link href="https://cdn.gilob.in/v1/import.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.gilob.in/v1/import.js"></script>
+```
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>smaple</title> <!-- defulat  scropts-->
+  <link href="https://cdn.gilob.in/v1/import.css?c=all" rel="stylesheet" type="text/css">
+  <script src="https://cdn.gilob.in/v1/import.js?c=all"></script>
+</head>
+
+<body>
+  <div class="h1 t-center">Hello World</div>
+
+</body>
+
+</html>
+```
 
 # Getting Started
 
