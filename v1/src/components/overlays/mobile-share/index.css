@@ -1,0 +1,136 @@
+ @media (max-width: 768px) {
+  mobile[form="bottom-bar"] {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0;
+   background-color:var(--over-bg);
+   backdrop-filter: var(--over-bg-blur);
+    overflow: hidden;
+    z-index: var(--level-100);
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+
+
+  }
+
+  mobile[form="bottom-bar"] [mobile-view-none] {
+    position: relative;
+    /**/
+    background: transparent !important;
+    height: 100vh;
+    scroll-snap-align: end;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+ 
+  }
+
+  mobile[form="bottom-bar"] [mobile-view-none][last] {
+ 
+   min-height: 30%;
+    max-height: 90%;
+
+  }
+
+
+
+
+
+
+  mobile[form="bottom-bar"] [mobile-view-cnt] {
+
+    background: var(--background-color);
+
+    overflow: hidden;
+    display:block;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    bottom:0; 
+    right: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top: var(--border-style) var(--border-width) var(--color-secondary);
+    height:auto;
+    padding-bottom: 20px;
+    padding-top: 15px; 
+    max-height: 95%; 
+    box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
+    box-sizing: content-box;
+
+  }
+ 
+  
+
+  mobile[form="bottom-bar"] [mobile-view-cnt][overflow="false"] {
+    /*options*/
+    overflow-y: hidden;
+
+  }
+
+
+
+  mobile[form="bottom-bar"] [mobile-view-cnt][show-event="true"] {
+    animation: mb-bottom-bar-show 300ms ease-in-out;
+
+  }
+
+  mobile[form="bottom-bar"] [mobile-view-cnt][show-event="null"] {
+    animation: mb-bottom-bar-close 300ms forwards;
+  }
+
+  mobile[form="bottom-bar"] [mobile-view-cnt][show-event="click-hide"] {
+    animation: mb-bottom-bar-close-by-click 300ms forwards;
+  }
+ 
+ 
+
+}
+
+@keyframes mb-bottom-bar-show {
+  0% {
+    transform: translateY(100%);
+
+  }
+
+  100% {
+    transform: translateY(0);
+
+
+  }
+
+}
+
+
+@keyframes mb-bottom-bar-close {
+  0% {
+    transform: translateY(99%);
+
+  }
+
+  100% {
+
+    transform: translateY(100%);
+
+  }
+}
+
+@keyframes mb-bottom-bar-close-by-click {
+  0% {
+    transform: translateY(0);
+
+  }
+
+  100% {
+
+    transform: translateY(100%);
+
+  }
+}

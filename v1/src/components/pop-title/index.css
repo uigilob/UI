@@ -1,0 +1,30 @@
+[pop-t-o] {
+  background-color: var(--color-secondary);
+  color: var(--color-tertiary);
+  z-index: var(--level-70);
+  display: none;
+
+}
+
+[d-dk] [pop-t-o][open] {
+  display: flex;
+  opacity: 0;
+  animation-name: pop-t-o-a;
+  animation-duration: var(--transition-time);
+  animation-fill-mode: forwards;
+  animation-delay: 400ms;
+}
+
+
+@keyframes pop-t-o-a {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,60 @@
+.pagination[pn-pattern-a] .p-next,
+.pagination[pn-pattern-a] .p-pre
+{
+   display: none;
+}
+.pagination .pag-n-go{
+    display: none;
+}
+.pagination[pn-total] .pag-n-go{
+    display: flex;
+}
+
+.pagination[pn-pattern-a] .pag-n-go {
+    display: none;
+}
+.pagination[pn-total][pn-pattern-a][pn-a-s-page] .pag-n-go{
+    display: flex;
+}
+
+
+.pagination .pag-n-a .button {
+   --color-secondary:var(--color-surface-container);
+   --color-tertiary:var(--color);
+}
+
+.pagination .pag-n-a .center .n-page.current-p{
+    --color-secondary:var(--color-primary-container);
+     --color-tertiary:var(--color-surface);
+}
+.pagination .pag-n-a .n-page[disabled]{
+    cursor: auto; 
+}
+
+.pagination .pag-n-go input{
+    max-width: 50px;
+    outline: none;
+color:var(--color);
+font-size: var(--font-size);
+background-color:var(--color-surface-container);
+margin:0;  
+}
+
+.pagination.error .pag-n-go  .pag-n-go-cnt  {
+    border-color:var(--error-color);
+}
+
+.pagination .pag-n-go .pag-n-go-cnt{
+    border-color:var(--color); 
+    background-color:none;
+ }
+.pagination .pag-n-go .button {
+    border:none;
+    border-radius:0;
+    border-top-right-radius:var(--border-radius);
+     border-bottom-right-radius:var(--border-radius);
+}
+
+.pagination[dis-j] .pag-n-go{
+    display: none;
+}

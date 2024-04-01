@@ -1,0 +1,17 @@
+.tabs .tab {
+    background: var(--color-surface-container);
+    color: var(--color);
+}
+
+.tabs .tab .icon {
+    fill: var(--color);
+}
+
+.tabs .tab[tab-active] {
+    background-color: var(--color-primary-container);
+    color: var(--color-surface);
+}
+
+.tabs .tab[tab-active] .icon {
+    fill: var(--color-surface);
+}

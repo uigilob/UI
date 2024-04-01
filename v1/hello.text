@@ -1,0 +1,16 @@
+"default_export": {
+        "js": [
+            "http.js",
+            "index.js",
+            "theme.js",
+            "mb-mdl.js"
+        ],
+        "css": [
+            "font.css",
+            "index.css",
+            "form.css",
+            "theme.css",
+            "size.css",
+            "mb-mdl.css"
+        ]
+    },

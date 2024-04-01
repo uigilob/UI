@@ -1,0 +1,83 @@
+.avatar {
+    border-radius: 50%;
+    background: none;
+    fill: var(--fill);
+    height: calc(var(--font-size) + var(--font-size) + var(--font-size));
+    min-height: calc(var(--font-size) + var(--font-size) + var(--font-size));
+    min-width: calc(var(--font-size) + var(--font-size) + var(--font-size));
+    width: calc(var(--font-size) + var(--font-size) + var(--font-size));
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    box-sizing: border-box;
+    padding: 1px;
+    position: relative;
+    border: var(--border-style) calc(var(--font-size) * 0.15) var(--color-primary);
+}
+
+
+.avatar img,
+.avatar svg {
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.avatar .badge {
+    position: absolute;
+    top: 2px;
+    left: calc(var(--font-size) + var(--font-size));
+    right: auto;
+    background-color: var(--color-primary-container);
+    /* Badge color */
+    color: var(--color-surface);
+    padding: calc(var(--font-size) * 0.25);
+    border-radius: 50%;
+    min-height: var(--font-size);
+    min-width: var(--font-size);
+    text-align: center;
+    width: auto;
+    height: auto;
+    max-width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border: var(--border-style) calc(var(--font-size) * 0.15) var(--color-surface);
+    font-size: calc(var(--font-size) * 0.70);
+    font-weight: bold;
+
+}
+
+.avatar-group {
+    display: flex;
+    column-gap: 0;
+    --color-primary: var(--color-surface);
+
+}
+
+.avatar-group .avatar:first-child {
+    margin-left: 0;
+}
+
+.avatar-group .avatar {
+    margin-left: calc(-2 * var(--padding));
+    transform: rotateZ(15deg);
+
+}
+
+[d-dk] .avatar-group .avatar:hover,
+[d-mb] .avatar-group .avatar:active {
+    transform: rotateZ(0deg);
+}
+
+[d-dk] .avatar-group .avatar:hover+.avatar,
+[d-mb] .avatar-group .avatar:active+.avatar {
+    transition: all var(--transition-time) ease-in-out;
+    transform: translateX(var(--padding));
+
+}

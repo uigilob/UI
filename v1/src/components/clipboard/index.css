@@ -1,0 +1,26 @@
+.clip-b .icon [icon-clip="r"] {
+  display: none;
+}
+
+.clip-b .icon [icon-clip="c"] {
+  display: block;
+}
+
+.clip-b[clip-new] .icon [icon-clip="c"] {
+  display: none;
+}
+
+.clip-b[clip-new] .icon [icon-clip="r"] {
+  display: block;
+  animation: clip-b-an 300ms ease-out;
+ }
+
+@keyframes clip-b-an {
+from {
+    transform: rotate(-60deg);
+
+  }
+to {
+    transform: rotate(0deg);
+  }
+}

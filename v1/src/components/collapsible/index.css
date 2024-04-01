@@ -1,0 +1,94 @@
+[collapse] {
+    background-color: var(--background-color);
+
+}
+
+[collapse="toggle"] {
+    border-bottom: var(--border-style) var(--border-width) var(--border-color);
+}
+
+[collapse] .collapse-h {
+    padding: var(--padding) var(--padding-cnt) var(--padding) var(--padding-cnt);
+    margin-bottom: var(--padding);
+}
+
+[collapse] .collapse-h .icon {
+    fill: var(--color-secondary);
+    transition: transform var(--transition-time) ease-in-out;
+}
+
+[collapse] .collapse-h .collapse-h-c {
+    user-select: none;
+    flex: auto;
+
+}
+
+[d-dk] [collapse] .collapse-h {
+    cursor: pointer;
+}
+
+[collapse="toggle"] .collapse-d {
+    padding: var(--padding) var(--padding-cnt) var(--padding) var(--padding-cnt);
+    display: none;
+    transition: opacity var(--transition-time) ease-in-out;
+}
+
+[collapse][cl-expand] .collapse-h {
+    background: var(--color-surface-container);
+
+}
+
+[collapse][cl-expand] .collapse-h .icon {
+    transform: rotate(180deg);
+}
+
+[collapse="toggle"][cl-expand] .collapse-d {
+    display: block;
+    animation-name: cl-a-toogle;
+    animation-duration: var(--transition-time);
+    animation-fill-mode: forwards;
+}
+
+@keyframes cl-a-toogle {
+    0% {
+        transform: scale(90%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
+}
+
+[collapse="expand"] {
+    position: relative;
+    transition: height 2s ease-in-out;
+}
+
+[collapse="expand"] .collapse-d {
+    opacity: 0.50;
+
+}
+
+[collapse="expand"] .collapse-ex {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    align-items: end;
+    background: none;
+
+}
+
+[collapse="expand"][cl-expand] .collapse-d {
+    animation-name: cl-a-toogle;
+    animation-duration: var(--transition-time);
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+[collapse="expand"][cl-expand] .collapse-ex {
+    position: relative;
+    margin-top: var(--padding);
+
+}

@@ -1,0 +1,214 @@
+.tabstack {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--background-color);
+    display: flex;
+    gap: var(--padding-cnt);
+
+}
+
+.tabstack [nav-tb="sidebar"] {
+    display: flex;
+    height: auto;
+    /*gap:var(--padding-cnt);*/
+    padding: calc(var(--padding-cnt) + calc(var(--padding-cnt) * 0.40));
+    padding-right: 0;
+    padding-top: var(--padding-cnt);
+    background-color: var(--background-color);
+    max-width: 300px;
+    min-width: 200px;
+
+}
+
+.tabstack [nav-tb="sidebar"] {
+    overflow-y: auto;
+    border-right: var(--border-style) var(--border-width) var(--border-color);
+}
+
+.tabstack .tabstack-gp {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--font-size) * 0.45);
+}
+
+.tabstack .tabstack-gp .tab {
+    background: none;
+    justify-content: start;
+    border-right: solid 2px rgba(0, 0, 0, 0);
+    border-radius: 0px;
+
+
+    padding: calc(var(--font-size) * 0.60);
+}
+
+.tabstack .tabstack-gp .icon {
+    fill: var(--fill);
+}
+
+.tabstack [nav-tb="sidebar"] .tab[tab-active] {
+    border-left: solid 2px var(--color-primary);
+}
+
+.tabstack .tabstack-gp .tab[tab-active] {
+    background-color: var(--color-surface-container);
+    --color-surface: var(--color);
+
+
+}
+
+.tabstack .tabstack-gp .tab:active {
+    background-color: var(--color-surface-container);
+    --color-surface: var(--color);
+}
+
+.tabstack .tabstack-gp [nav-tb="child-s"] {
+    display: none;
+}
+
+.tabstack [nav-tb="data"] .tabstack-gp {
+    border: none;
+}
+
+.tabstack [nav-tb="data"] .tabstack-gp .tab[tab-active] {
+    border: none;
+}
+
+[d-dk] .tabstack .tabstack-gp .tab:hover {
+    background-color: var(--color-surface-container);
+}
+
+.tabstack [nav-tb="data"] {
+    flex: auto;
+    position: relative;
+    padding-top: 0;
+    background-color: var(--background-color);
+    display: grid;
+    overflow: hidden;
+}
+
+.tabstack [nav-tb="data"] [nav-tb-t] {
+    background-color: var(--background-color);
+
+}
+
+
+.tabstack [nav-tb="data"] [nav-tb-t] [nav-tb="head"] {
+    padding: var(--padding-cnt);
+
+}
+
+.tabstack [nav-tb="data"] [nav-tb-t] [nav-tb="head"] .button {
+    display: none;
+}
+
+.tabstack [nav-tb="data"] [nav-tb-t] {
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.tabstack [nav-tb="data"] [nav-tb-t][tab-active] {
+    display: flex;
+}
+
+.tabstack [nav-tb="data"] [nav-tb-t] [nav-tb="cnt"] {
+    padding: calc(var(--padding-cnt) + calc(var(--padding-cnt) * 0.40));
+    flex: auto;
+    height: 100%;
+    overflow-y: auto;
+
+}
+
+.tabstack [nav-tb="data"] * [nav-tb-t][tab-active] {
+    position: absolute;
+    z-index: var(--level-1);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    animation-name: nav-tb-Right;
+    animation-duration: var(--transition-time);
+    animation-fill-mode: forwards;
+
+
+}
+
+.tabstack [nav-tb="data"] * [nav-tb-t][tab-active] [nav-tb="head"] .button,
+.tabstack [nav-tb="data"] * .tabstack-gp [nav-tb="child-s"] {
+    display: flex;
+}
+
+.tabstack [nav-tb="data"] * .tabstack-gp .tab {
+    border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 768px) {
+    .tabstack [nav-tb="sidebar"] {
+        border-right: none;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding-right: calc(var(--padding-cnt) + calc(var(--padding-cnt) * 0.40));
+        z-index: var(--level-1);
+        max-width: 100%;
+
+    }
+
+    .tabstack .tabstack-gp .tab[tab-active] {
+        border-right: none;
+    }
+
+    .tabstack .tabstack-gp .tab {
+        border-radius: var(--border-radius);
+    }
+
+    .tabstack .tabstack-gp [nav-tb="child-s"] {
+        display: flex;
+    }
+
+    .tabstack [nav-tb="data"] [nav-tb-t][tab-active] {
+        position: absolute;
+        z-index: var(--level-1);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+
+    }
+
+
+    .tabstack [nav-tb="data"] [nav-tb-t][tab-active] [nav-tb="head"] .button {
+        display: flex;
+    }
+
+    .tabstack [nav-tb="data"] [nav-tb-t][tab-active] {
+        animation-name: nav-tb-Right;
+        animation-duration: var(--transition-time);
+        animation-fill-mode: forwards;
+    }
+
+
+}
+
+@keyframes nav-tb-Right {
+    0% {
+        opacity: 0.50;
+        transform: translateX(100px);
+        /* Start position, move left */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* End position, no movement */
+    }
+}

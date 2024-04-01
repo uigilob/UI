@@ -1,0 +1,108 @@
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: var(--font-size);
+    height: var(--font-size);
+    border: var(--border-style) calc(var(--font-size) * 0.10) var(--border-color);
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    background: var(--background-color);
+    transition: var(--transition-time) ease-in-out;
+    position: relative !important;
+    overflow: hidden;
+    padding: 1px;
+
+
+}
+
+input[type="checkbox"]:disabled {
+    background: var(--disabled-bacground);
+    opacity: var(--disabled-opacity);
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:checked {
+    background: var(--color-secondary);
+    border: none;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2713';
+    color: var(--color-secondary);
+    position: absolute;
+    margin: auto;
+    top: 1%;
+    left: 1%;
+    right: 1%;
+    bottom: 1%;
+    font-size: calc(var(--font-size) * 0.70);
+    font-weight: bold !important;
+    text-align: center;
+    color: white;
+    border-radius: var(--border-radius);
+
+}
+
+/*toggle*/
+input[toggle][type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: calc(var(--font-size) + var(--font-size) + calc(var(--font-size) * 0.30));
+    height: calc(var(--font-size) + calc(var(--font-size) * 0.30));
+    /*border: solid calc(var(--font-size) * 0.10) var(--border-color);*/
+    border-radius: 34px;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    background: var(--ul-hover);
+    transition: var(--transition-time) ease-in-out;
+    position: relative !important;
+    padding: 1px;
+    border: none;
+
+
+}
+
+
+
+input[toggle][type="checkbox"]:checked {
+    background: var(--color-primary) !important;
+    border: none;
+}
+
+
+input[toggle][type="checkbox"]:disabled {
+    opacity: var(--disabled-opacity);
+    cursor: not-allowed;
+}
+
+
+
+input[toggle][type="checkbox"]::before {
+    content: '';
+    color: var(--color-secondary);
+    position: absolute;
+
+    margin: auto;
+    left: 5%;
+    top: 0;
+    bottom: 0;
+    right: auto;
+    width: calc(var(--font-size) + calc(var(--font-size) * 0.10));
+    height: calc(var(--font-size) + calc(var(--font-size) * 0.10));
+    /*border:solid 1px;*/
+    border-radius: 50% !important;
+    transition: var(--transition-time) ease-in-out;
+    font-size: 0 !important;
+    background: white;
+}
+
+input[toggle][type="checkbox"]:checked::before {
+    left: auto;
+    transform: translateX(95%);
+}

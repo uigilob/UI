@@ -1,0 +1,30 @@
+progress{
+ -moz-appearance: none;
+ -webkit-appearance: none;
+  appearance: none;
+   background-color:var(--ul-hover);
+  height: calc(var(--font-size) * 0.50);
+  border-radius: 34px;
+  margin: 0;
+  border: var(--border-style) var(--border-width) var(--border-color);
+   overflow: hidden;    
+}
+
+
+
+progress::-webkit-progress-value {
+  background-color:var(--color-primary);
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-bar {
+ -webkit-appearance: none;
+  appearance: none;
+  background-color:var(--ul-hover); height: 100%;
+  border-radius: 34px;
+}
+
+progress::-moz-progress-bar {
+  background-color:var(--color-primary); height: 100%;
+  border-radius: 34px;
+}
