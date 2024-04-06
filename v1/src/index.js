@@ -260,6 +260,17 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 };
 
 function $htp(scopp__$, optons_$) {
+      
+      var self__$ = this;
+      
+     //agin call is not synk 
+     var $__idetfiy =  self__$.getAttribute("cnt-load-get") || self__$.getAttribute("cnt-load-post") || self__$.getAttribute("htp-get") || self__$.getAttribute("htp-post")
+     
+     if ($__idetfiy == null){
+         return undefined
+     }
+    
+    
      var onhtp__$ = new CustomEvent('htp-load');
      var endhtp__$ = new CustomEvent('htp-loaded');
      var htpfiald__$ = new CustomEvent('htp-fail');
@@ -289,7 +300,7 @@ function $htp(scopp__$, optons_$) {
     }
   }
 
-  var self__$ = this;
+ 
 
   var synk__$ = this.getAttribute("htp-sync") == "true" || undefined
   var target__$ = $qs(this.getAttribute("htp-t")) || this;
@@ -371,7 +382,7 @@ function $htp(scopp__$, optons_$) {
       lder__$.setAttribute("htp-done", "t");
 
 
-      if (!synk__$) {
+      if (synk__$ == undefined) {
         onetime__$();
 
       }
