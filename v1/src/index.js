@@ -407,6 +407,11 @@ function $htp(scopp__$, optons_$) {
     } catch (er__$) {
       null
     }
+    try {
+      scopp__$['value'] = self__$.value;
+    } catch (er__$) {
+      null
+    }
   }
   $cntload(this, success_load__$, scopp__$, function (pr) {
     download_f__$(pr)
