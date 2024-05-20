@@ -10,8 +10,8 @@
 
 # CDN 
 ```html
-<link href="https://cdn.gilob.in/v1/import.css" rel="stylesheet" type="text/css">
-<script src="https://cdn.gilob.in/v1/import.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.js"></script>
 ```
 
 ```html
