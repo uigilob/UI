@@ -97,12 +97,11 @@
 <li><a href='https://ui.gilob.in/functions/visibility/'>Visibility</a></li>
 </ul>
 
-   ## events
-
-      <ul>
+## events
+<ul>
       <li><a href='https://ui.gilob.in/events/bind/'>Bind</a></li>
       <li><a href='https://ui.gilob.in/events/cmd/'>Cmd</a></li>
-      </ul>
+</ul>
       
     
 ## [template](https://ui.gilob.in/template/) 
