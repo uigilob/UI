@@ -35,6 +35,57 @@
 
 </html>
 ```
+## template 
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>smaple</title>
+    <link href="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.js"></script>
+</head>
+
+<body class="theme fixed p0 over-x-adjust center">
+    <!-- Sidebar -->
+    <nav class="sidebar b-right" s-defind="menu">
+        <!-- Sidebar Header -->
+        <div class="padding-cnt bar-exp">Sidebar Header</div>
+
+        <!-- Sidebar Content -->
+        <div class="sidebar-content flex flex-col gap-l-f padding-cnt">
+            Sidebar Content
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="padding-cnt" cnt-tag="footer">Sidebar Footer</div>
+    </nav>
+
+    <!-- Main Content Body -->
+    <div class="body flex flex-col">
+        <!-- Header -->
+        <header class=" center-tb b-b p gap" md-fix="true">
+            <a href="/" class="h6 bold c-p ">BRAND</a>
+            <button class="button m-auto-l" sidebar="trigger" s-defind="menu">Menu</button>
+        </header>
+
+        <!-- Content Area -->
+        <div class="home padding-cnt d-scroll">
+            <h1 class="h1 t-center">Heading of a Blog Post</h1>
+            <!-- Add your main content here -->
+        </div>
+    </div>
+
+    <!-- Add your scripts or other body elements here -->
+
+</body>
+
+</html>
+
+```
+
 
 # Getting Started
 
