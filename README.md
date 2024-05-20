@@ -35,7 +35,49 @@
 
 </html>
 ```
+## dynamic-load 
 
+```html
+<div
+    htp-get="/hello.html"
+    htp-load="[event]"
+    htp-t="[target]" 
+    htp-swap="[swap-method]">
+</div>
+
+```
+```html
+<div class="target"
+    htp-get="/hello.html"
+    htp-swap="append"
+    htp-sync="true"
+    htp-load="click">
+  Click show button to load Content
+</div>
+```
+## dropdown
+```html
+<button class="dropdown" d-event="click" data="post-id-2" d-defind="rest" dropdown="trigger">rest</button>
+
+<ul class="dropdown-menu" overflow-x="nowrap" d-event="mouseover" d-defind="rest">
+    <a href="#home">Home</a>
+    <a>About</a>
+    <a disabled>Services</a> <!-- Target disabled: This item is disabled and cannot be clicked. -->
+    <a event="remove">Contact</a>
+    <!-- Not closeable when clicked: This item will not close the dropdown when clicked. -->
+    <button event="remove">Button</button>
+</ul>
+```
+## $http GET 
+```js
+  var req = $http.get('/data', { param1: 'value1', param2: 'value2' });
+
+   req.done(function(response) {
+     console.log('GET request successful:', response);
+   }).error(function() {
+     console.log('Error occurred during the GET request.');
+   });
+```
 ## Theme
 
 <ul>
