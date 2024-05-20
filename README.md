@@ -36,6 +36,29 @@
 </html>
 ```
 
+## Theme
+
+<ul>
+<a  href="https://ui.gilob.in/theme/css/"  class='h2 bold'  style='padding:30px;padding-left:0'>Css</a>
+<ul>
+<li><a href='https://ui.gilob.in/theme/css/divider/'>Divider</a></li>
+<li><a href='https://ui.gilob.in/theme/css/icon/'>Icon</a></li>
+</ul>
+<li><a href='https://ui.gilob.in/theme/dark/'>Dark</a></li>
+<li><a href='https://ui.gilob.in/theme/rules/'>Rules</a></li>
+<li><a href='https://ui.gilob.in/theme/switcher/'>Switcher</a></li>
+<li><a href='https://ui.gilob.in/theme/variables/'>Variables</a></li>
+</ul>
+
+
+## Ajax
+<ul>
+<li><a href='https://ui.gilob.in/ajax/$htp/'>$Htp</a></li>
+<li><a href='https://ui.gilob.in/ajax/$http/'>$Http</a></li>
+<li><a href='https://ui.gilob.in/ajax/dynamic/'>Dynamic</a></li>
+</ul>
+
+
 ## components
 
 <ul>
@@ -65,8 +88,24 @@
     <li><a href='https://ui.gilob.in/components/tabstack/'>Tabstack</a></li>
     </ul>
 
+## functions
+<ul>
+<li><a href='https://ui.gilob.in/functions/cmd/'>Cmd</a></li>
+<li><a href='https://ui.gilob.in/functions/device/'>Device</a></li>
+<li><a href='https://ui.gilob.in/functions/parserHTML/'>Parserhtml</a></li>
+<li><a href='https://ui.gilob.in/functions/reactFrom/'>Reactfrom</a></li>
+<li><a href='https://ui.gilob.in/functions/visibility/'>Visibility</a></li>
+</ul>
+
+   ## events
+
+      <ul>
+      <li><a href='https://ui.gilob.in/events/bind/'>Bind</a></li>
+      <li><a href='https://ui.gilob.in/events/cmd/'>Cmd</a></li>
+      </ul>
+      
     
-## template 
+## [template](https://ui.gilob.in/template/) 
 ```html
 <!DOCTYPE html>
 <html>
