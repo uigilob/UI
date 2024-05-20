@@ -22,8 +22,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>smaple</title> <!-- defulat  scropts-->
-  <link href="https://cdn.gilob.in/v1/import.css?c=all" rel="stylesheet" type="text/css">
-  <script src="https://cdn.gilob.in/v1/import.js?c=all"></script>
+  <link href="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/gh/uigilob/UI@main/src/ui-gilob.js"></script>
 </head>
 
 <body>
