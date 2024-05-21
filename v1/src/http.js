@@ -1,4 +1,3 @@
-
 !function () {
     Object.defineProperty(window, "$http", {
         value: {
@@ -134,7 +133,7 @@
                         connect.addEventListener('loadend', function () {
                             if (!(this.status == options.status)) {
                                 if (prossing_status == true) {
-                                    func();
+                                    func.call(this,this.response);
                                 }
                             }
                         });
