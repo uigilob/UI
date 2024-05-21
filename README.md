@@ -205,7 +205,10 @@ Visit  [https://ui.gilob.in/get-started](https://ui.gilob.in/get-started) to get
 
 
 # CH-Py  modules
-
+```html
+<link href="https://cdn.gilob.in/v1/import.css?c=all&g=t&f=all" rel="stylesheet" type="text/css">
+  <script src="https://cdn.gilob.in/v1/import.js?c=all&g=t&g=hl&f=all"></script>
+```
 
 ```html
 <!-- Import all modules -->
