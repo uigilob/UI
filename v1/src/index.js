@@ -215,10 +215,16 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
       }
     })
       .downloadProgress(function ($__progress__$) {
-        $progress_call_$.call($target__$_$, $__progress__$);
+         if(typeof  $progress_call_$ == "function"){
+             $progress_call_$.call($target__$_$, $__progress__$);
+         }
+         
       })
       .uploadProgress(function ($_progress__$) {
-        $upprogress_call_$.call($target__$_$, $_progress__$)
+          if(typeof  $upprogress_call_$ == "function"){
+             $upprogress_call_$.call($target__$_$, $_progress__$)
+         }
+       
       })
       .error(function () {
         if (typeof $call__$_$ == "function") {
@@ -245,10 +251,14 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 
     })
       .downloadProgress(function ($__progress__$) {
-        $progress_call_$.call($target__$_$, $__progress__$);
+          if(typeof  $progress_call_$ == "function"){
+             $progress_call_$.call($target__$_$, $__progress__$);
+         }
       })
       .uploadProgress(function ($_progress__$) {
-        $upprogress_call_$.call($target__$_$, $_progress__$)
+        if(typeof  $upprogress_call_$ == "function"){
+             $upprogress_call_$.call($target__$_$, $_progress__$)
+         }
       })
       .error(function () {
         if (typeof $call__$_$ == "function") {
@@ -408,7 +418,7 @@ function $htp(scopp__$, optons_$) {
       null
     }
     try {
-      scopp__$['value'] = self__$.value;
+      scopp__$['input'] = self__$.value;
     } catch (er__$) {
       null
     }
