@@ -22,7 +22,7 @@
 
 
         }
-        
+
     });
 
 
@@ -129,112 +129,135 @@
     });
 
     setInterval(function () {
-     //window.addEventListener("load",function(){
+        //window.addEventListener("load",function(){
         var trigger = $qsall(`[sidebar="trigger"]`);
-        if(trigger.length > 0){
+        if (trigger.length > 0) {
             trigger.forEach(function (e) {
-            if (e.getAttribute("s-setup") == null) {
-                e.setAttribute("s-setup", "t");
-                
-                e.addEventListener("click", function () {
-                    var d = this.getAttribute("s-defind");
-                    var dt = $qs(`.sidebar[s-defind="${d}"]`);
-                    var styel = dt.getAttribute("open");
+                if (e.getAttribute("s-setup") == null) {
+                    e.setAttribute("s-setup", "t");
 
-                    if (dt && ((styel != "always" && styel != "c-always" && styel != "always-exp" && styel != "c-always-exp") || $getDeviceType() != "Desktop")) {
-                        if (this.getAttribute("isOpen") == null) {
-                            Samebtn(d, true);
-                            openSide(dt);
-                        } else {
-                            Samebtn(d, false)
-                            closeSide(dt)
+                    e.addEventListener("click", function () {
+                        var d = this.getAttribute("s-defind");
+                        var dt = $qs(`.sidebar[s-defind="${d}"]`);
+                        var styel = dt.getAttribute("open");
+
+                        if (dt && ((styel != "always" && styel != "c-always" && styel != "always-exp" && styel != "c-always-exp") || $getDeviceType() != "Desktop")) {
+                            if (this.getAttribute("isOpen") == null) {
+                                Samebtn(d, true);
+                                openSide(dt);
+                            } else {
+                                Samebtn(d, false)
+                                closeSide(dt)
+                            }
+
+
                         }
 
-
-                    }
-
-                    else if (dt && (styel == "always" || styel == "c-always")) {
-                        var atn = styel;
-                        if (atn == "always") {
-                            Samebtn(d, false);
-                            closealwy(dt)
-                        } else {
-                            Samebtn(d, true);
-                            openalwy(dt);
+                        else if (dt && (styel == "always" || styel == "c-always")) {
+                            var atn = styel;
+                            if (atn == "always") {
+                                Samebtn(d, false);
+                                closealwy(dt)
+                            } else {
+                                Samebtn(d, true);
+                                openalwy(dt);
+                            }
                         }
-                    }
-                    else if (dt && styel == "always-exp") {
-                        null;
-                    }
-                });
-            }
-        });
+                        else if (dt && styel == "always-exp") {
+                            null;
+                        }
+                    });
+                }
+            });
         }
-       
+
 
         /*always on*/
         var sidebar = $qsall(".sidebar");
-        if(sidebar.length > 0){
-          sidebar.forEach(function (e) {
-            var open = e.getAttribute("open");
-            if ((open == "always" || open == "always-exp") && e.getAttribute("always-s") == null) {
-                e.setAttribute("always-s", "t");
-                if ($getDeviceType() == "Desktop") {
-                    e.setAttribute("d-dk", "t")
+        if (sidebar.length > 0) {
+            sidebar.forEach(function (e) {
+                var open = e.getAttribute("open");
+                if ((open == "always" || open == "always-exp") && e.getAttribute("always-s") == null) {
+                    e.setAttribute("always-s", "t");
+                    if ($getDeviceType() == "Desktop") {
+                        e.setAttribute("d-dk", "t")
+                    }
+
                 }
 
-            }
-
-            if ((open == "always-exp" || open == "always-exp") && e.getAttribute("s-exptnd-ev") == null) {
-                e.setAttribute("s-exptnd-ev", "t");
-                e.addEventListener("mouseenter", function () {
-                    openexpand(this)
-
-
-                });
-                e.addEventListener("mouseleave", function () {
-                    closexpand(this)
-
-
-                });
-            }
-
-
-        });
-        }
+                if ((open == "always-exp" || open == "always-exp") && e.getAttribute("s-exptnd-ev") == null) {
+                    e.setAttribute("s-exptnd-ev", "t");
+                    /*e.addEventListener("mouseenter", function () {
+                       // openexpand(this)
+                       var self = this 
+                      setTimeout(function(){ 
+                          openexpand(self)
+                      },300) 
         
+                    });  */
+                    document.body.addEventListener("mousemove", function (event) { //mousemove
+                        sidebar_leave = e.contains(event.target)
+                        if (sidebar_leave && e.getAttribute("expand") == null) {
+                            setTimeout(function () {
+                                openexpand(e)
+                            }, 100)
 
-    },100);
+                        }
+
+                    });
+                    document.body.addEventListener("mousemove", function (event) { //mousemove
+                        sidebar_leave = e.contains(event.target)
+                        if (!sidebar_leave && e.getAttribute("expand") != null) {
+                            //  setTimeout(function(){ 
+                            closexpand(e)
+                            //  },100) 
+
+                        }
+
+                    });
+                    /*e.addEventListener("mouseleave", function () {
+                       // closexpand(this) 
+                          
+      
+                    }); */
+                }
+
+
+            });
+        }
+
+
+    }, 100);
 
     /*alway auto sidebar*/
-function auto_mode() {
-    if ($getDeviceType() == "Desktop" && $sizeMobile()) {
-        this.setAttribute("open", "");
-    } else {
-        this.setAttribute("open", "always");
+    function auto_mode() {
+        if ($getDeviceType() == "Desktop" && $sizeMobile()) {
+            this.setAttribute("open", "");
+        } else {
+            this.setAttribute("open", "always");
+        }
     }
-}
 
-function autoreszie(self) {
-    window.addEventListener("resize", function () {
-        auto_mode.call(self)
-    });
-}
+    function autoreszie(self) {
+        window.addEventListener("resize", function () {
+            auto_mode.call(self)
+        });
+    }
 
-setInterval(function () {
-    var resp_d_m = $qsall(".sidebar[open='always']");
-    if (resp_d_m.length > 0){
-     resp_d_m.forEach(function (s) {
-        if (s.getAttribute("set-auto_alays_co") == null) {
-            s.setAttribute("set-auto_alays_co", "t")
-            
-            auto_mode.call(s);
-            autoreszie(s)
+    setInterval(function () {
+        var resp_d_m = $qsall(".sidebar[open='always']");
+        if (resp_d_m.length > 0) {
+            resp_d_m.forEach(function (s) {
+                if (s.getAttribute("set-auto_alays_co") == null) {
+                    s.setAttribute("set-auto_alays_co", "t")
+
+                    auto_mode.call(s);
+                    autoreszie(s)
+                }
+
+            });
         }
 
-    });
-    }
-    
-},100);
-    
+    }, 100);
+
 }(); 
