@@ -1,4 +1,4 @@
- !function () {
+!function () {
 
   var onopen = new CustomEvent('open', {
     detail: {
@@ -84,7 +84,7 @@
   }
 
   //setInterval(function () {
- document.addEventListener("evn-run",function() {
+  document.addEventListener("evn-run", function () {
     var dialog = document.querySelectorAll(".dialog");
     dialog.forEach(function (e) {
       if (e.getAttribute("step1") == null) {
@@ -96,7 +96,7 @@
         if (cstn_h == null) {
           var ti = e.getAttribute("d-title") == null ? "" : e.getAttribute("d-title");
 
-          modal.innerHTML  = `<div class="dialog-head center-tb padding-cnt">
+          modal.innerHTML = `<div class="dialog-head center-tb padding-cnt">
             <div class="title h4 color">${ti}</div>
             <button class="button icon-actn"  align="icon" align-l="y"> 
              <div class="icon">    
@@ -107,7 +107,7 @@
                 
             </button> 
         </div>`
-        //$parserHTML(head_str_p,modal,"innerHTML");
+          //$parserHTML(head_str_p,modal,"innerHTML");
         }
         else {
 
@@ -159,8 +159,8 @@
         modal.append(loadingmdl)
 
         e.append(modal);
-        
-      
+
+
         /*defult opend is*/
         if (e.getAttribute("open")) {
           dialogOpen(e, true);
@@ -187,27 +187,32 @@
 
         e.addEventListener("click", function (event) {
           if (e.getAttribute("close-self") != "false") {
-            if (event.target.closest('.dialog-card') != modal) {
+            if (!e.querySelector('.dialog-card').contains(event.target) && !event.target.closest('.n-page')) {
               dialogClose(e)
             }
+
+            /*if (e.contains(event.target)) {  //!= modal  
+                document.console = event.target.closest('.dialog-card')
+              //dialogClose(e)
+            }*/
           }
 
         });
 
-     /*  setTimeout(function(){
-         $evn_load();
-        },100);*/
+        /*  setTimeout(function(){
+            $evn_load();
+           },100);*/
       }
-      
+
     });
-    
-   /* if(document.querySelectorAll(".dialog[step1]").length > 0){
-        setTimeout(function(){
-         $evn_load();
-         console.log("berror")
-        },100);
-    }*/
-   
+
+    /* if(document.querySelectorAll(".dialog[step1]").length > 0){
+         setTimeout(function(){
+          $evn_load();
+          console.log("berror")
+         },100);
+     }*/
+
 
     /*trigger*/
 
@@ -258,10 +263,10 @@
                 } else {
                   this.removeAttribute("open");
                 }
-              } 
+              }
 
             }
-          } 
+          }
         })
       }
     })
