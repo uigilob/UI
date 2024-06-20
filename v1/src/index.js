@@ -211,7 +211,7 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
     }
     $http.get(geth__$__$, pr__$__$, $op__$__$).done(function (data__$_$, ht__$_$) {
       if (typeof $call__$_$ == "function") {
-        $call__$_$.call($target__$_$, 200, data__$_$, ht__$_$);
+       $call__$_$.call($target__$_$,ht__$_$.status, data__$_$, ht__$_$);
       }
     })
       .downloadProgress(function ($__progress__$) {
@@ -226,13 +226,13 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
          }
        
       })
-      .error(function () {
+      .error(function (data__$_$) {
         if (typeof $call__$_$ == "function") {
-          $call__$_$.call($target__$_$, 300, null, null);
+          $call__$_$.call($target__$_$,this.status,data__$_$,this);
         }
       });
 
-  }
+  } 
   else if (posth__$__$ != null) {
     let pr__$__$ = queryParams___$_$(query__$__$);
     let he__$__$ = queryParams___$_$(headers__$__$);
@@ -245,7 +245,7 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
 
     var HTP__$_$ = $http.post(posth__$__$, $op__$__$).done(function (data__$_$, ht__$_$) {
       if (typeof $call__$_$ == "function") {
-        $call__$_$.call($target__$_$, 200, data__$_$, ht__$_$);
+        $call__$_$.call($target__$_$,ht__$_$.status, data__$_$, ht__$_$);
       }
       // $parserHTML(data,ss("button"),"innerHTML") 
 
@@ -260,17 +260,18 @@ function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
              $upprogress_call_$.call($target__$_$, $_progress__$)
          }
       })
-      .error(function () {
+      .error(function (data__$_$) {
         if (typeof $call__$_$ == "function") {
-          $call__$_$.call($target__$_$, 300, null, null);
+            $call__$_$.call($target__$_$, this.status,data__$_$,this);
         }
       });
   }
-
+ 
 };
 
-function $htp(scopp__$, optons_$) {
-      
+
+function $htp(scopp__$={}, optons_$={},extension__$=undefined) {
+     
       var self__$ = this;
       
      //agin call is not synk 
@@ -294,7 +295,7 @@ function $htp(scopp__$, optons_$) {
         this.dispatchEvent(endhtp__$)
       } catch (er) { 
             null
-        }
+        } 
      }
      function event_fail__$(){
          try {
@@ -345,7 +346,7 @@ function $htp(scopp__$, optons_$) {
 
         download__$.value = pro;
       }
-
+ 
     }
   }
   function upload_f__$(pro) {
@@ -378,7 +379,22 @@ function $htp(scopp__$, optons_$) {
       null;
     }
   }
-  function success_load__$(status, cnt) {
+  function success_load__$(status, cnt,http) {
+      if(typeof extension__$ == "function")  {
+          extension__$.call(this,{
+              status:status,
+              target:target__$,
+              body:cnt,
+              http:http,
+              lder:lder__$,
+              swap:swap__$, 
+              swap_s:swap_s__$,
+              htp_data:htp_data__$, //target to append to rsponse body content
+              
+          })
+         
+          return null
+      }
     target__$.removeAttribute("htp-on");
     
     if (status_r__$ == status) {
@@ -411,6 +427,8 @@ function $htp(scopp__$, optons_$) {
       call_agent__$.call(this, status);
     }
   } 
+  
+  
   if (scopp__$) {
     try {
       scopp__$['self'] = self__$;
