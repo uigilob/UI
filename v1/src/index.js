@@ -114,43 +114,56 @@ function $getDeviceType() {
   });
 }();
 
-function $parserHTML(string_, applyto, method = "append", scriptMehtod = "after") {
-    //methods textCotent,innerHTML,append,appendChild .....
-    //scriptMehtod append,after before,prepend
-
+function $parserHTML(string_, applyto, method = "append", scriptMethod = "after",styleMethod="before") {
+    // Available methods: textContent, innerHTML, append, appendChild, etc.
+    // Available scriptMethod: append, after, before, prepend
+    // Available styleMethod: after, before, prepend
+    
     var parser = new DOMParser();
     var htmlDoc = parser.parseFromString(string_, 'text/html');
-
+    
     var scripts = document.createElement("div");
+    var styles = document.createElement("div");
+    
     htmlDoc.querySelectorAll("script").forEach(function (script) {
-        scripts.append(script);
+        scripts.appendChild(script);
     });
-    if (typeof applyto[method] == "function") {
-        Array.from(htmlDoc.body.childNodes).forEach(function (doc) {
-            applyto[method](doc);
+
+    htmlDoc.querySelectorAll("style").forEach(function (style) {
+        styles.appendChild(style);
+    });
+    
+    if (typeof applyto[method] === "function") {
+        Array.from(htmlDoc.body.childNodes).forEach(function (node) {
+            applyto[method](node);
         });
     } else {
-        applyto[method] = htmlDoc.body[method]
+        applyto[method] = htmlDoc.body[method];
     }
-
+    
+    Array.from(styles.childNodes).forEach(function (style) {
+        var newStyle = document.createElement("style");
+        newStyle.innerHTML = style.innerHTML;
+        applyto[styleMethod](newStyle);
+    });
+    
     Array.from(scripts.childNodes).forEach(function (script) {
-
         var newScript = document.createElement("script");
-        script_scopp = ["async", "crossorigin", "defer", "fetchpriority", "integrity",
-            "nomodule", "src", "text", "type"]
-        script_scopp.forEach(function (scop) {
-            if (script.getAttribute(scop) != null) {
-                newScript.setAttribute(scop, script.getAttribute(scop));
+        var scriptAttributes = ["async", "crossorigin", "defer", "fetchpriority", "integrity", "nomodule", "src", "text", "type"];
+        
+        scriptAttributes.forEach(function (attr) {
+            if (script.getAttribute(attr) != null) {
+                newScript.setAttribute(attr, script.getAttribute(attr));
             }
-        })
+        });
+
         if (script.getAttribute("src") == null) {
             newScript.innerHTML = script.innerHTML;
         }
-        applyto[scriptMehtod](newScript);
+        
+        applyto[scriptMethod](newScript);
     });
-    
-      
-};
+}
 
 function $cntload($target__$_$, $call__$_$, scops_apply = {}, $progress_call_$,
   $upprogress_call_$) {
