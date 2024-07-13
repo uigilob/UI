@@ -248,7 +248,7 @@
               if (this.getAttribute("open") == null) {
                 if (this.getAttribute("step1")) {
                   dialogOpen(this);
-                  document.console = "true"
+                 
                 } else {
                   this.setAttribute("open", "t");
                 }
